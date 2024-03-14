@@ -26,16 +26,19 @@ export const NavbarLangContent = {
     english: {
         appHeader: "Context Demo App",
         searchBoxPlaceHolder: "Search",
+        darkModeLabel: "Dark Mode",
         flagEmoji: "🇺🇸",
     },
     french: {
         appHeader: "App de démonstration pour le contexte",
         searchBoxPlaceHolder: "Rechercher",
+        darkModeLabel: "Mode foncé",
         flagEmoji: "🇫🇷",
     },
     spanish: {
         appHeader: "App Demo de Context",
         searchBoxPlaceHolder: "Buscar",
+        darkModeLabel: "Modo oscuro",
         flagEmoji: "🇪🇸",
     },
 };

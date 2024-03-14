@@ -1,38 +1,16 @@
-import React, { Component, createContext, Consumer } from 'react';
+import React, { createContext, useState } from 'react';
 
 export const LanguageContext = createContext();
 
-export class LanguageProvider extends Component {
-    constructor (props) {
-        super(props);
-        this.state = { 
-            language: "english", 
-        };
-        this.changeLanguage = this.changeLanguage.bind(this);
-    }
+export function LanguageProvider (props) {
 
-    changeLanguage (event) {
-        if (event.target.value)
-        this.setState({ 
-            language: event.target.value
-         });
-    }
+    const [language, setLanguage] = useState("english");
+    const changeLanguage = (event) => 
+        event.target.value && setLanguage( event.target.value );
 
-    render () {
     return (
-        <LanguageContext.Provider value={
-            {...this.state,
-            changeLanguage: this.changeLanguage}
-        }>
-            {this.props.children}
+        <LanguageContext.Provider value={{ language, changeLanguage }}>
+            {props.children}
         </LanguageContext.Provider>
-        );
-    }
+    );
 }
-
-// Make a higher-order component function (HOC/HOF) that wraps this context and allows it to be used in parallel with other contexts in a given child component
-export const withLanguageContext = MyComponent => props => (
-    <LanguageContext.Consumer>
-        {val => <MyComponent languageContext={val} {...props} />}
-    </LanguageContext.Consumer>
-);
