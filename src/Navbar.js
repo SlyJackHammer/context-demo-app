@@ -8,28 +8,26 @@ import SearchIcon from "@material-ui/icons/Search";
 import Switch from "@material-ui/core/Switch";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "./styles/NavBarStyles";
-import { ThemeContext } from "./contexts/ThemeContext";
-import { LanguageContext } from "./contexts/LanguageContext";
+import { withThemeContext } from "./contexts/ThemeContext";
+import { withLanguageContext } from "./contexts/LanguageContext";
 import { NavbarLangContent } from "./contexts/languageAppContent";
 
 class Navbar extends Component {
-  static contextType = ThemeContext;
   
   render() {
-    const {isDarkMode, toggleDarkMode} = this.context;
-    
-    const { classes } = this.props;
+    const { classes, languageContext, themeContext } = this.props;
+    const { isDarkMode, toggleDarkMode} = themeContext;
+    const { flagEmoji, appHeader, searchBoxPlaceHolder} = NavbarLangContent[languageContext.language];
+
     return (
-      <LanguageContext.Consumer>
-      { contextVal => 
       <div className={classes.root}>
         <AppBar position='static' color={ isDarkMode ? 'default' : 'primary'}>
           <Toolbar>
             <IconButton className={classes.menuButton} color='inherit'>
-              <span role="img" aria-label="French flag">{NavbarLangContent[contextVal.language].flagEmoji}</span>
+              <span role="img" aria-label="French flag">{flagEmoji}</span>
             </IconButton>
             <Typography className={classes.title} variant='h6' color='inherit'>
-              {NavbarLangContent[contextVal.language].appHeader}
+              {appHeader}
             </Typography>
             <Switch onChange={toggleDarkMode} />
             <div className={classes.grow} />
@@ -38,7 +36,7 @@ class Navbar extends Component {
                 <SearchIcon />
               </div>
               <InputBase
-                placeholder={NavbarLangContent[contextVal.language].searchBoxPlaceHolder}
+                placeholder={`${searchBoxPlaceHolder}...`}
                 classes={{
                   root: classes.inputRoot,
                   input: classes.inputInput
@@ -48,9 +46,7 @@ class Navbar extends Component {
           </Toolbar>
         </AppBar>
       </div>
-      }
-      </LanguageContext.Consumer>
     );
   }
 }
-export default withStyles(styles)(Navbar);
+export default withThemeContext(withLanguageContext(withStyles(styles)(Navbar)));

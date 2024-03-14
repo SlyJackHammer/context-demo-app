@@ -25,17 +25,17 @@ export const FormLangContent = {
 export const NavbarLangContent = {
     english: {
         appHeader: "Context Demo App",
-        searchBoxPlaceHolder: "Search...",
+        searchBoxPlaceHolder: "Search",
         flagEmoji: "🇺🇸",
     },
     french: {
         appHeader: "App de démonstration pour le contexte",
-        searchBoxPlaceHolder: "Rechercher...",
+        searchBoxPlaceHolder: "Rechercher",
         flagEmoji: "🇫🇷",
     },
     spanish: {
         appHeader: "App Demo de Context",
-        searchBoxPlaceHolder: "Buscar...",
+        searchBoxPlaceHolder: "Buscar",
         flagEmoji: "🇪🇸",
     },
 };

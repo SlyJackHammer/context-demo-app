@@ -5,28 +5,9 @@ import Form from "./Form";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
 
-// Example from the MUI site, https://mui.com/material-ui/customization/theming/
-// import { 
-//   MuiThemeProvider,
-//   createMuiTheme } 
-//   from '@material-ui/core/styles/';
-
-// const theme = createMuiTheme({
-//   spacing: 10,
-//   typography: {
-//     fontSize: "1rem",
-//   },
-  // palette: {
-  //   primary: {
-  //     main: "rgb(255,0,0)",
-  //   },
-  // },
-// });
-
 class App extends Component {
   render() {
     return (
-      // <MuiThemeProvider theme={theme}>
       <ThemeProvider>
         <LanguageProvider>
           <PageContent>
@@ -35,7 +16,6 @@ class App extends Component {
           </PageContent>
         </LanguageProvider>
       </ThemeProvider>
-      // </MuiThemeProvider>
     );
   }
 }

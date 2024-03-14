@@ -26,3 +26,9 @@ export class ThemeProvider extends Component {
         );
     }
 }
+
+export const withThemeContext = MyComponent => props => (
+    <ThemeContext.Consumer>
+        {val => <MyComponent themeContext={val} {...props} />}
+    </ThemeContext.Consumer>
+);

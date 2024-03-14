@@ -13,15 +13,14 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import withStyles from "@material-ui/core/styles/withStyles";
 import styles from "./styles/FormStyles";
-import { LanguageContext } from "./contexts/LanguageContext";
+import { withLanguageContext } from "./contexts/LanguageContext";
 import { FormLangContent } from "./contexts/languageAppContent";
 
 class Form extends Component {
-  static contextType = LanguageContext;
 
   render() {
-    const { classes } = this.props;
-    const { language, changeLanguage } = this.context;
+    const { classes, languageContext } = this.props;
+    const { language, changeLanguage } = languageContext;
     const { email, password, signInBtn, signInHeader, rememberMeChk } = FormLangContent[language];
 
     return (
@@ -64,4 +63,4 @@ class Form extends Component {
     );
   }
 }
-export default withStyles(styles)(Form);
+export default withLanguageContext(withStyles(styles)(Form));
