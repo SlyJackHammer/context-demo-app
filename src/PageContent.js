@@ -20,9 +20,9 @@ class PageContent extends Component {
             {   isDarkMode =>   
             <div style={styles}>
                 {this.props.children}
-                <button style={isDarkMode ? 
+                {/* <button style={isDarkMode ? 
                     { backgroundColor: "black", color: "white" } :
-                    { backgroundColor : "white", color: "black" }}>DarkMode?</button>
+                    { backgroundColor : "white", color: "black" }}>DarkMode?</button> */}
             </div>
             }
         </ThemeContext.Consumer>

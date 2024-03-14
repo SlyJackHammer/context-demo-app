@@ -3,6 +3,7 @@ import PageContent from "./PageContent";
 import Navbar from "./Navbar";
 import Form from "./Form";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { LanguageProvider } from "./contexts/LanguageContext";
 
 // Example from the MUI site, https://mui.com/material-ui/customization/theming/
 // import { 
@@ -27,10 +28,12 @@ class App extends Component {
     return (
       // <MuiThemeProvider theme={theme}>
       <ThemeProvider>
-        <PageContent>
-          <Navbar />
-          <Form />
-        </PageContent>
+        <LanguageProvider>
+          <PageContent>
+            <Navbar />
+            <Form />
+          </PageContent>
+        </LanguageProvider>
       </ThemeProvider>
       // </MuiThemeProvider>
     );

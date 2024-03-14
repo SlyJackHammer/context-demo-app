@@ -7,7 +7,6 @@ export class ThemeProvider extends Component {
         super(props);
         this.state = { 
             isDarkMode: true, 
-            // toggleDarkMode: this.toggleDarkMode, 
         };
         this.toggleDarkMode = this.toggleDarkMode.bind(this);
     }
@@ -18,7 +17,10 @@ export class ThemeProvider extends Component {
 
     render () {
     return (
-        <ThemeContext.Provider value={{...this.state, toggleDarkMode: this.toggleDarkMode}}>
+        <ThemeContext.Provider value={
+            {...this.state,
+            toggleDarkMode: this.toggleDarkMode}
+        }>
             {this.props.children}
         </ThemeContext.Provider>
         );
